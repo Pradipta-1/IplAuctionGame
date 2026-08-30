@@ -54,7 +54,7 @@
         .team-card.selected { border-color: var(--accent); background: rgba(245, 158, 11, 0.14); transform: scale(1.03); box-shadow: 0 4px 15px var(--accent-glow); }
         .team-card img { width: 34px; height: 34px; object-fit: contain; }
         .team-card-name { font-size: 13px; font-weight: 800; color: #f8fafc; }
-        .btn-main { background: #0f172a; color: #fff; border: none; width: 100%; max-width: 450px; padding: 15px; font-size: 16px; font-weight: 900; border-radius: 12px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: 0.2s; }
+        .btn-main { background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; border: none; width: 100%; max-width: 450px; padding: 15px; font-size: 16px; font-weight: 900; border-radius: 12px; cursor: pointer; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4); transition: 0.2s; }
         .btn-main:active { transform: scale(0.96); }
 
         /* --- APP HEADER --- */
@@ -82,10 +82,6 @@
         .rating-badge { position: absolute; bottom: -5px; right: -10px; color: white; font-weight: 900; font-size: 12px; padding: 4px 8px; border-radius: 8px; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transform: skewX(-5deg); }
 
         .player-name { font-size: 22px; font-weight: 900; margin: 2px 0; color: var(--text-main); letter-spacing: -0.5px; }
-        
-        /* Stats Box */
-        .stats-box { background: rgba(0,0,0,0.03); border: 1px solid var(--border-light); border-radius: 10px; padding: 8px; margin: 10px 0; font-size: 13px; color: var(--text-main); display: flex; justify-content: space-around; font-weight: 800; }
-        .stat-item span { display: block; font-size: 9px; color: var(--text-dim); text-transform: uppercase; margin-bottom: 2px; font-weight: 800;}
 
         /* Timer Bar */
         .timer-track { width: 100%; height: 6px; background: rgba(0,0,0,0.1); border-radius: 10px; margin: 10px 0; overflow: hidden; }
@@ -211,13 +207,6 @@
                 <div class="player-name" id="p-name">Player Name</div>
                 <div style="font-size: 12px; color: var(--accent); font-weight: 800;" id="p-type-base">Indian • Base: ₹2.00 Cr</div>
 
-                <div class="stats-box" id="p-stats">
-                    <div class="stat-item"><span id="lbl1">Matches</span><b id="st1">0</b></div>
-                    <div class="stat-item"><span id="lbl2">Runs</span><b id="st2">0</b></div>
-                    <div class="stat-item"><span id="lbl3">Avg</span><b id="st3">0.0</b></div>
-                    <div class="stat-item"><span id="lbl4">SR</span><b id="st4">0.0</b></div>
-                </div>
-
                 <div class="timer-track"><div class="timer-fill" id="timer-bar"></div></div>
 
                 <div class="bid-box">
@@ -311,7 +300,6 @@
             { id: 9, name: "LSG", full: "Lucknow Super Giants", logo: "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/OqrL0ztLy13FBpvuF6GCBQ_500x500.png", purse: 100.0, sqd: 0, os: 0, bat: 0, bwl: 0, ar: 0, wk: 0, bought: [], isUser: false }
         ];
 
-
         /* --- 2026-FORM PLAYER RATINGS --- */
         const rating2026 = {
             "Vaibhav Sooryavanshi": 99,
@@ -401,7 +389,7 @@
             "T Natarajan": 80,
             "Kuldeep Yadav": 86,
             "Keshav Maharaj": 80,
-    "Glenn Phillips": 80,
+            "Glenn Phillips": 80,
             "Pat Cummins": 90,
             "Corbin Bosch": 82,
             "Jaydev Unadkat": 79,
@@ -504,44 +492,44 @@
         }
 
         const eliteStats = [
-            "Virat Kohli|Batter|Indian|2.0|99|252|9336|38.7|131.9",
-            "Jasprit Bumrah|Bowler|Indian|2.0|99|133|165|20.7|7.3",
-            "Yuzvendra Chahal|Bowler|Indian|2.0|98|187|231|21.6|7.7",
-            "Rohit Sharma|Batter|Indian|2.0|98|257|7329|29.7|131.2",
-            "Sunil Narine|All-Rounder|Overseas|2.0|98|200|205|25.5|165.7",
-            "Rashid Khan|Bowler|Overseas|2.0|98|121|149|21.8|6.8",
-            "MS Dhoni|Wicketkeeper|Indian|2.0|97|264|5439|39.1|137.5",
-            "Shikhar Dhawan|Batter|Indian|2.0|97|222|6769|35.3|127.1",
-            "David Warner|Batter|Overseas|2.0|97|184|6565|40.5|139.7",
-            "Bhuvneshwar Kumar|Bowler|Indian|2.0|96|203|222|26.3|7.4",
-            "KL Rahul|Wicketkeeper|Indian|2.0|96|132|5815|45.6|134.6",
-            "Suryakumar Yadav|Batter|Indian|2.0|96|150|3594|35.2|145.4",
-            "Andre Russell|All-Rounder|Overseas|2.0|95|127|115|29.2|174.9",
-            "Rishabh Pant|Wicketkeeper|Indian|2.0|95|111|3284|35.3|148.9",
-            "Hardik Pandya|All-Rounder|Indian|2.0|95|137|64|28.7|145.0",
-            "Ravindra Jadeja|All-Rounder|Indian|2.0|95|265|178|30.5|7.6",
-            "Jos Buttler|Wicketkeeper|Overseas|2.0|94|118|4532|37.5|147.3",
-            "Trent Boult|Bowler|Overseas|2.0|94|104|145|26.5|8.2",
-            "Sanju Samson|Wicketkeeper|Indian|2.0|94|167|4419|30.6|139.0",
-            "Shubman Gill|Batter|Indian|2.0|94|103|3216|37.8|135.7",
-            "Kagiso Rabada|Bowler|Overseas|2.0|93|97|140|21.6|8.4",
-            "Shreyas Iyer|Batter|Indian|2.0|93|125|4128|32.2|127.5",
-            "Quinton de Kock|Wicketkeeper|Overseas|2.0|93|107|3157|31.5|134.2",
-            "Mohammed Shami|Bowler|Indian|2.0|92|110|143|26.8|8.4",
-            "Faf du Plessis|Batter|Overseas|2.0|92|145|4773|36.1|135.5",
-            "Heinrich Klaasen|Wicketkeeper|Overseas|2.0|92|33|993|39.7|168.3",
-            "Ruturaj Gaikwad|Batter|Indian|2.0|91|66|2380|41.7|136.8",
-            "Nicholas Pooran|Wicketkeeper|Overseas|2.0|91|76|1769|32.1|156.8",
-            "Glenn Maxwell|All-Rounder|Overseas|2.0|91|134|35|27.5|156.7",
-            "Mohammed Siraj|Bowler|Indian|2.0|90|93|93|30.5|8.6",
-            "Arshdeep Singh|Bowler|Indian|2.0|90|65|76|27.1|8.9",
-            "Marcus Stoinis|All-Rounder|Overseas|2.0|90|96|43|27.5|142.0",
-            "Yashasvi Jaiswal|Batter|Indian|1.5|89|52|1607|32.1|150.1",
-            "Rinku Singh|Batter|Indian|1.0|89|45|893|34.3|143.3",
-            "Travis Head|Batter|Overseas|2.0|89|25|772|35.0|168.5",
-            "Piyush Chawla|Bowler|Indian|2.0|88|192|192|26.6|7.9",
-            "Amit Mishra|Bowler|Indian|2.0|88|162|174|23.8|7.3",
-            "Ravichandran Ashwin|Bowler|Indian|2.0|88|221|187|29.7|7.1"
+            "Virat Kohli|Batter|Indian|2.0|99",
+            "Jasprit Bumrah|Bowler|Indian|2.0|99",
+            "Yuzvendra Chahal|Bowler|Indian|2.0|98",
+            "Rohit Sharma|Batter|Indian|2.0|98",
+            "Sunil Narine|All-Rounder|Overseas|2.0|98",
+            "Rashid Khan|Bowler|Overseas|2.0|98",
+            "MS Dhoni|Wicketkeeper|Indian|2.0|97",
+            "Shikhar Dhawan|Batter|Indian|2.0|97",
+            "David Warner|Batter|Overseas|2.0|97",
+            "Bhuvneshwar Kumar|Bowler|Indian|2.0|96",
+            "KL Rahul|Wicketkeeper|Indian|2.0|96",
+            "Suryakumar Yadav|Batter|Indian|2.0|96",
+            "Andre Russell|All-Rounder|Overseas|2.0|95",
+            "Rishabh Pant|Wicketkeeper|Indian|2.0|95",
+            "Hardik Pandya|All-Rounder|Indian|2.0|95",
+            "Ravindra Jadeja|All-Rounder|Indian|2.0|95",
+            "Jos Buttler|Wicketkeeper|Overseas|2.0|94",
+            "Trent Boult|Bowler|Overseas|2.0|94",
+            "Sanju Samson|Wicketkeeper|Indian|2.0|94",
+            "Shubman Gill|Batter|Indian|2.0|94",
+            "Kagiso Rabada|Bowler|Overseas|2.0|93",
+            "Shreyas Iyer|Batter|Indian|2.0|93",
+            "Quinton de Kock|Wicketkeeper|Overseas|2.0|93",
+            "Mohammed Shami|Bowler|Indian|2.0|92",
+            "Faf du Plessis|Batter|Overseas|2.0|92",
+            "Heinrich Klaasen|Wicketkeeper|Overseas|2.0|92",
+            "Ruturaj Gaikwad|Batter|Indian|2.0|91",
+            "Nicholas Pooran|Wicketkeeper|Overseas|2.0|91",
+            "Glenn Maxwell|All-Rounder|Overseas|2.0|91",
+            "Mohammed Siraj|Bowler|Indian|2.0|90",
+            "Arshdeep Singh|Bowler|Indian|2.0|90",
+            "Marcus Stoinis|All-Rounder|Overseas|2.0|90",
+            "Yashasvi Jaiswal|Batter|Indian|1.5|89",
+            "Rinku Singh|Batter|Indian|1.0|89",
+            "Travis Head|Batter|Overseas|2.0|89",
+            "Piyush Chawla|Bowler|Indian|2.0|88",
+            "Amit Mishra|Bowler|Indian|2.0|88",
+            "Ravichandran Ashwin|Bowler|Indian|2.0|88"
         ];
 
         const realNamesString = "Manish Pandey,Mayank Agarwal,Ajinkya Rahane,Prithvi Shaw,Rahul Tripathi,Nehal Wadhera,Ayush Badoni,Abhinav Manohar,Abdul Samad,Devdutt Padikkal,Karun Nair,Sarfaraz Khan,Shahrukh Khan,Sameer Rizvi,Angkrish Raghuvanshi,Ashutosh Sharma,Shashank Singh,Aman Khan,Deepak Hooda,Anmolpreet Singh,Rohan Kadam,Yash Dhull,Harpreet Singh Bhatia,Mandeep Singh,Priyam Garg,Virat Singh,Atharva Taide,Ramandeep Singh,Marnus Labuschagne,Tim David,Jason Roy,Harry Brook,Will Jacks,Joe Root,Dawid Malan,Alex Hales,Kane Williamson,Finn Allen,Rilee Rossouw,Tristan Stubbs,Dewald Brevis,Rassie van der Dussen,Evin Lewis,Kyle Mayers,Sherfane Rutherford,Brandon King,Martin Guptill,Colin Munro,Bhanuka Rajapaksa,Pathum Nissanka,Matthew Short,Ashton Turner,Rizwan Cheema,Paul Stirling,Avesh Khan,Mukesh Kumar,Khaleel Ahmed,Deepak Chahar,T Natarajan,Umran Malik,Harshit Rana,Mayank Yadav,Yash Dayal,Mohsin Khan,Rahul Chahar,Varun Chakaravarthy,Suyash Sharma,Sandeep Sharma,Vaibhav Arora,Mayank Markande,Shreyas Gopal,Navdeep Saini,Ishan Porel,Basil Thampi,Karthik Tyagi,Akash Madhwal,Tushar Deshpande,Simarjeet Singh,Mukesh Choudhary,Prashant Solanki,Kumar Kartikeya,Vidwath Kaverappa,Darshan Nalkande,Yudhvir Singh,Rasikh Salam,Akash Deep,Sandeep Warrier,KM Asif,Lukman Meriwala,Chetan Sakariya,Kamlesh Nagarkoti,Shivam Mavi,Yash Thakur,Karn Sharma,Spencer Johnson,Jason Behrendorff,Nathan Ellis,Jhye Richardson,Adam Zampa,Mark Wood,Reece Topley,Chris Jordan,Tymal Mills,Adil Rashid,Tim Southee,Lockie Ferguson,Matt Henry,Adam Milne,Lungi Ngidi,Gerald Coetzee,Nandre Burger,Marco Jansen,Tabraiz Shamsi,Keshav Maharaj,Noor Ahmad,Fazalhaq Farooqi,Naveen-ul-Haq,Mujeeb Ur Rahman,Mustafizur Rahman,Taskin Ahmed,Shoriful Islam,Maheesh Theekshana,Dushmantha Chameera,Dilshan Madushanka,Nuwan Thushara,Alzarri Joseph,Obed McCoy,Akeal Hosein,Gudakesh Motie,Axar Patel,Washington Sundar,Shivam Dube,Nitish Kumar Reddy,Krunal Pandya,Vijay Shankar,Venkatesh Iyer,Abhishek Sharma,Harshal Patel,Shardul Thakur,Rahul Tewatia,Riyan Parag,K Gowtham,Lalit Yadav,Shahbaz Ahmed,Prerak Mankad,Rishi Dhawan,Manoj Bhandage,Sanvir Singh,Anukul Roy,Nishant Sindhu,Raj Bawa,Mahipal Lomror,Kedar Jadhav,Swapnil Singh,Vivrant Sharma,Utkarsh Singh,Pratham Singh,Saurabh Kumar,Shams Mulani,Arshin Kulkarni,Mitchell Marsh,Ben Stokes,Sam Curran,Liam Livingstone,Moeen Ali,Rachin Ravindra,Mitchell Santner,Aiden Markram,Jason Holder,Shakib Al Hasan,Wanindu Hasaranga,Aaron Hardie,Michael Bracewell,Jimmy Neesham,Romario Shepherd,Odean Smith,Sikandar Raza,Dasun Shanaka,Mohammad Nabi,Azmatullah Omarzai,David Wiese,Roelof van der Merwe,Chris Green,Daniel Sams,Ashton Agar,Keemo Paul,Fabian Allen,Dwaine Pretorius,Ishan Kishan,Dhruv Jurel,Jitesh Sharma,Prabhsimran Singh,Wriddhiman Saha,Anuj Rawat,KS Bharat,Upendra Yadav,Narayan Jagadeesan,Sheldon Jackson,Vishnu Vinod,Aryan Juyal,Kumar Kushagra,Abishek Porel,Bipin Saurabh,Robin Minz,Harvik Desai,Ricky Bhui,Luvnith Sisodia,Baba Indrajith,Phil Salt,Jonny Bairstow,Devon Conway,Rahmanullah Gurbaz,Kusal Mendis,Litton Das,Donovan Ferreira,Ryan Rickelton,Shai Hope,Johnson Charles,Tom Latham,Matthew Wade,Josh Inglis,Alex Carey,Sadeera Samarawickrama,Ben McDermott,Josh Philippe,Jordan Cox,Jacob Bethell,Kanishk Chouhan,Vihaan Malhotra,Mangesh Yadav,Abhinandan Singh,Jacob Duffy,Satvik Deswal,Josh Hazlewood,Vicky Ostwal,Richard Gleeson,Salil Arora,Smaran-R,Jaydev Unadkat,Eshan Malinga,David Payne,Sakib Hussain,Zeeshan Ansari,Shivang Kumar,Kamindu Mendis,RS Ambrish,Pat Cummins,Danish Malewar,Ruchit Ahir,Naman Dhir,Raj Angad Bawa,Corbin Bosch,Atharva Ankolekar,Krish Bhagat,Raghu Sharma,Mohammed Salahuddin Izhar,Tejasvi Dahiya,Rovman Powell,Sarthak Ranjan,Tim Seifert,Cameron Green,Daksh Kamra,Blessing Muzarabani,Matheesha Pathirana,Vaibhav Sooryavanshi,Shimron Hetmyer,Lhuan dre Pretorius,Ravi Singh,Shubham Dubey,Ravi Bishnoi,Brijesh Sharma,Sushant Mishra,Vignesh Puthur,Kuldeep Sen,Yash Raj Punja,Kwena Maphaka,Yudhvir Singh Charak,Emanjot Singh Chahal,Kartik Sharma,Urvil Patel,Ayush Mhatre,Jamie Overton,Prashant Veer,Ramakrishna Ghosh,Aman Hakim Khan,Zakary Foulkes,Macneil Noronha,Dian Forrester,Kuldip Yadav,Gurjapneet Singh,Priyansh Arya,Cooper Connolly,Pyla Avinash,Suryansh Shedge,Mitchell Owen,Musheer Khan,Xavier Bartlett,Vyshak Vijaykumar,Vishal Nishad,Praveen Dubey,Sai Sudharsan,Connor Esterhuizen,Tom Banton,Ashok Sharma,Prasidh Krishna,Jayant Yadav,Ishant Sharma,Arshad Khan,Gurnoor Singh Brar,Luke Wood,Kulwant Khejroliya,Glenn Phillips";
@@ -552,8 +540,7 @@
             let pts = p.split("|");
             rawPlayers.push({
                 name: pts[0], role: pts[1], type: pts[2], base: parseFloat(pts[3]),
-                rating: get2026Rating(pts[0], pts[1], parseInt(pts[4])), m: parseInt(pts[5]), main: parseInt(pts[6]),
-                avg: parseFloat(pts[7]), sr: parseFloat(pts[8])
+                rating: get2026Rating(pts[0], pts[1], parseInt(pts[4]))
             });
         });
 
@@ -567,19 +554,7 @@
             let base = isOs ? 1.0 : (Math.random() > 0.5 ? 0.5 : 0.2);
             let rating = get2026Rating(name, role); 
             
-            let m = Math.floor(Math.random() * 40) + 5;
-            let main, avg, sr;
-            if(role === "Batter" || role === "Wicketkeeper") {
-                main = Math.floor(m * (15 + Math.random() * 10));
-                avg = (20 + Math.random() * 15).toFixed(1);
-                sr = (120 + Math.random() * 25).toFixed(1);
-            } else {
-                main = Math.floor(m * (0.8 + Math.random() * 0.4));
-                avg = (7.5 + Math.random() * 2.0).toFixed(1);
-                sr = (18 + Math.random() * 6).toFixed(1);
-            }
-            
-            rawPlayers.push({ name, role, type: isOs ? "Overseas" : "Indian", base, rating, m, main, avg, sr });
+            rawPlayers.push({ name, role, type: isOs ? "Overseas" : "Indian", base, rating });
         });
 
         rawPlayers.sort((a, b) => b.rating - a.rating);
@@ -851,12 +826,6 @@
             document.getElementById("p-name").innerText = p.name;
             document.getElementById("p-type-base").innerText = `${p.type} • Base Price: ₹${p.base.toFixed(2)} Cr`;
             
-            let isBat = p.role === "Batter" || p.role === "Wicketkeeper";
-            document.getElementById("lbl1").innerText = "Matches"; document.getElementById("st1").innerText = p.m;
-            document.getElementById("lbl2").innerText = isBat ? "Runs" : "Wickets"; document.getElementById("st2").innerText = p.main;
-            document.getElementById("lbl3").innerText = isBat ? "Avg" : "Econ"; document.getElementById("st3").innerText = p.avg;
-            document.getElementById("lbl4").innerText = isBat ? "SR" : "Bowl SR"; document.getElementById("st4").innerText = p.sr;
-
             document.getElementById("p-price").innerText = `₹${currentBid.toFixed(2)} Cr`;
             document.getElementById("bidder-info").style.display = "none";
             document.getElementById("p-awaiting").style.display = "block";
@@ -1038,7 +1007,7 @@
             while (biddingActive && maxIterations > 0) {
                 maxIterations--;
                 let eligible = teams.filter(t => {
-                    if (t === simWinner || t.sqd >= 25) return false;
+                    if (t.isUser || t === simWinner || t.sqd >= 25) return false;
                     if (targetPlayer.type === "Overseas" && t.os >= 9) return false;
                     let nextBid = (simBid === targetPlayer.base && simWinner === null) ? simBid : simBid + getIncrement(simBid);
                     if (t.purse - nextBid < 0.2 * (25 - t.sqd)) return false;
@@ -1073,7 +1042,6 @@
             if(!isActive || isPaused) return;
             let currentSet = p.set;
             
-            // Replaced block confirm dialog with instant toast
             showToast(`Simulating ${currentSet}...`);
 
             skipPlayer(); 
@@ -1158,5 +1126,3 @@
     </script>
 </body>
 </html>
-
-
